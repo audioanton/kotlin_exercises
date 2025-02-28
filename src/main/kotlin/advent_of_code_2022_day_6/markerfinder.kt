@@ -11,7 +11,7 @@ fun main() {
 
     val l = listOf(test1,test2,test3,test4,test5)
 
-    val data : List<String> = File("src/main/kotlin/advent_of_code_2022_day_6/test_input.txt").readLines()
+    val data : List<String> = File("src/main/kotlin/advent_of_code_2022_day_6/testing.txt").readLines()
 
 //    l.forEach { println(findMarker(it, 14)) }
 
