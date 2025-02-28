@@ -30,7 +30,7 @@ class Worker(private val name : String) {
 fun main() {
 
     val names = listOf("Tomten", "Glader", "Butter", "Tröger", "Trötter", "Blyger", "Rådjuret", "Nyckelpigan", "Haren", "Räven",
-                        "Skumtomten", "Gråsuggan", "Myran", "Bladlusen")
+                        "Skumtomten", "Gråsuggan", "Myran", "Bladlusen", "Dammråttan")
 
     val santa = Worker(names[0])
     santa.addSubordinatesByList(listOf(Worker(names[1]), Worker(names[2])))
@@ -44,7 +44,8 @@ fun main() {
     santa.findWorker(names[9], santa.subordinates)?.addSubordinatesByList(
         listOf(Worker(names[11]), Worker(names[12]))
     )
-    santa.findWorker(names[12], santa.subordinates)?.subordinates?.add(Worker(names.last()))
+    santa.findWorker(names[12], santa.subordinates)?.subordinates?.add(Worker(names[13]))
+    santa.findWorker(names[10], santa.subordinates)?.subordinates?.add(Worker(names.last()))
 
     fun appLoop() {
         while (true) {
