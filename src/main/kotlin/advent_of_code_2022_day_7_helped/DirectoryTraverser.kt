@@ -1,4 +1,4 @@
-package advent_of_code_2022_day_7
+package advent_of_code_2022_day_7_helped
 
 import java.io.File
 
