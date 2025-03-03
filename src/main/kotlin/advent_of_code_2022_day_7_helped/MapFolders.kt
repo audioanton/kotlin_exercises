@@ -56,7 +56,7 @@ fun main() {
     val rows : List<String> = File("src/main/kotlin/advent_of_code_2022_day_7/input.txt").readLines()
     val mainFolder = createFolderTree(rows)
 
-    val spaceRemaining = 70_000_000 - mainFolder.getFolderSize()
+    val spaceRemaining = 70_000_000 - mainFolder.getFolderSize() // underscores _ help keep track of numbers sizes
     val spaceNeeded = 30_000_000 - spaceRemaining
 
     val answerPartOne = getFoldersFiltered(mainFolder) { f -> f.getFolderSize() <= 100000 }.sumOf { it.getFolderSize() }

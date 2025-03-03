@@ -12,6 +12,5 @@ import org.junit.jupiter.api.Assertions.*
      val b = folder.changeFolder("B")
      assertEquals(1, folder.subFolders.size)
      assertEquals("B", b.folderName)
-
  }
 }

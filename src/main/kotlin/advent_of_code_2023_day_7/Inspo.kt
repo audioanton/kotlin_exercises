@@ -10,6 +10,12 @@ import java.io.File
 
 class Day7 {
 
+//    use Class Triple which is a Kotlin standard data class, hand, bid, value
+//    create function to establish the value of a hand
+//    function checks for multiple ocurrence of any character, and binds their value to an int of 6 available choices.
+//    sorts according to score, uses compareHands method when multiciplies are equal - which check cards values..
+//    use sorted (map) list to multiply by index
+
     fun solvePart1(input: File): Any {
         return input.readLines().asSequence().map { it.split(" ") }.map { Triple(it[0], it[1], valueOf(it[0])) }.sortedWith { left, right ->
             if (left.third != right.third) left.third.compareTo(right.third) // sorterar alla händer per rank om de inte har samma rank
