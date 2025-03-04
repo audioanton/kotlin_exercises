@@ -14,7 +14,12 @@ fun main () {
             summed.add(0)
         else
             summed[summed.size-1] = summed.last() + line.replace(" ", "").toInt()
+
+    // part one
     println(summed.max())
+
+    // part two
+    println(summed.sortedDescending().subList(0, 3).sum())
 
 
 //    not imperative
@@ -29,5 +34,5 @@ fun main () {
         }
         return maxCalories(input, mutableListOf())
     }
-    println(getMaxCalories(lines.joinToString(separator = " ", postfix = " / -") { it.ifEmpty { "/" } }))
+//    println(getMaxCalories(lines.joinToString(separator = " ", postfix = " / -") { it.ifEmpty { "/" } }))
 }
