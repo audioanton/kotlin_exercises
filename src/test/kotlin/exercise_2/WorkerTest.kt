@@ -152,14 +152,14 @@ class WorkerTest {
  @Test
  fun collectAllSubordinatesTest() {
   val worker = santa.findWorker("Tomten", santa.subordinates)
-  val subordinates = worker?.collectAllSubordinates()
+  val subordinates = worker?.collectAllSubordinates(listOf(worker), emptyList())
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subTomten))
   assertEquals(subTomten.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
 
   val newWorker = santa.findWorker("Glader", santa.subordinates)
-  val newSubs = newWorker?.collectAllSubordinates()
+  val newSubs = newWorker?.collectAllSubordinates(listOf(newWorker), emptyList())
   assertNotNull(newSubs)
   assertTrue(subordinates!!.containsAll(subGlader))
   assertEquals(subGlader.size, newSubs!!.size)

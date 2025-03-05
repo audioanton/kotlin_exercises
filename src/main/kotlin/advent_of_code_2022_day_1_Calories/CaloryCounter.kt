@@ -4,7 +4,7 @@ import java.io.File
 
 fun main () {
 
-    val lines = File("src/main/kotlin/advent_of_code_2022_day_1/input.txt").readLines()
+    val lines = File("src/main/kotlin/advent_of_code_2022_day_1_Calories/input.txt").readLines()
 
     // imperative
     val summed : MutableList<Int> = mutableListOf(0)

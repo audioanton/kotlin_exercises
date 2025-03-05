@@ -18,21 +18,23 @@ data class ParsedHand(val hand: List<Int>, val multiples: List<Int>, val bid: In
     )
 }
 
+fun parseHand(cards : String, bid : String) : ParsedHand {
+    val camelValues : Map<Char, Int> = "TJQKA".map { it }.withIndex().associate { it.value to it.index + 10 }
+    val parsedHand = cards.map { camelValues[it] ?: it.digitToInt() }
+    val multiples = cards.groupingBy { it }.eachCount().values.sortedDescending()
+    return ParsedHand(parsedHand, multiples, bid.toInt())
+}
+
 fun main() {
-    val lines : List<String> = File("src/main/kotlin/advent_of_code_2023_day_7/input.txt").readLines()
+    val lines : List<String> = File("src/main/kotlin/advent_of_code_2023_day_7_CamelCards/input.txt").readLines()
 
     fun getAnswer(lines : List<String>) : Int {
-        val camelValues : Map<Char, Int> = "TJQKA".map { it }.withIndex().associate { it.value to it.index + 10 }
-
         return lines.asSequence().map { it.split(" ") } // using lambda with variables inside map to create new Object
-            .map { (cards, bid) ->
-            val parsedHand = cards.map { camelValues[it] ?: it.digitToInt() }
-            val multiples = cards.groupingBy { it }.eachCount().values.sortedDescending()
-            ParsedHand(parsedHand, multiples, bid.toInt())
-        }
+        .map { (cards, bid) -> parseHand(cards, bid) }
         .sorted()
         .mapIndexed { index, parsedHand -> parsedHand.bid * (index +1) }
         .sum()
    }
+
     println(getAnswer(lines))
 }

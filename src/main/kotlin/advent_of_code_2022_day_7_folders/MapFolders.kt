@@ -36,7 +36,6 @@ fun createFolderTree(input : List<String>): Folder {
                 if (functionStack.isEmpty()) functionStack.add(Folder(folderName))
                 else functionStack.addFirst(functionStack.first().changeFolder(folderName))
             }
-
             else -> {
                 val fileSize = row.substringBefore(" ").toInt()
                 functionStack.first().addFile(fileSize)
@@ -51,9 +50,8 @@ fun getFoldersFiltered(folder : Folder, predicate : (Folder) -> Boolean) : List<
             folder.subFolders.flatMap { getFoldersFiltered( it, predicate) }
 }
 
-
 fun main() {
-    val rows : List<String> = File("src/main/kotlin/advent_of_code_2022_day_7/input.txt").readLines()
+    val rows : List<String> = File("src/main/kotlin/advent_of_code_2022_day_7_folders/input.txt").readLines()
     val mainFolder = createFolderTree(rows)
 
     val spaceRemaining = 70_000_000 - mainFolder.getFolderSize() // underscores _ help keep track of numbers sizes
@@ -61,9 +59,6 @@ fun main() {
 
     val answerPartOne = getFoldersFiltered(mainFolder) { f -> f.getFolderSize() <= 100000 }.sumOf { it.getFolderSize() }
     val answerPartTwo = getFoldersFiltered(mainFolder) { it.getFolderSize() >= spaceNeeded }.minByOrNull { it.getFolderSize() }?.getFolderSize()
-
-//    minBy() and maxBy() along with other functions replace reduce, min(), max() in Java
-//    using functions instead of vals like me is more functional style programming, reusable and flexible
 
     println(answerPartOne)
     println(answerPartTwo)

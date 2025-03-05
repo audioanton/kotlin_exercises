@@ -4,15 +4,12 @@ class Worker(val name : String, val subordinates : List<Worker> = listOf()) { //
 
     val allSubordinates get() : List<String> = subordinates.map { it.name } + subordinates.flatMap { it.allSubordinates }
 
-    fun collectAllSubordinates(): List<String> {
-        tailrec fun collectSubordinates(workers: List<Worker>, allSubordinates: List<Worker>): List<String> {
+    tailrec fun collectAllSubordinates(workers: List<Worker>, allSubordinates : List<Worker>): List<String> {
             return if (workers.isEmpty()) allSubordinates.map { it.name }
             else {
                 val flatSubordinates = workers.flatMap { it.subordinates }
-                return collectSubordinates(flatSubordinates, allSubordinates + flatSubordinates)
+                return collectAllSubordinates(flatSubordinates, allSubordinates + flatSubordinates)
             }
-        }
-        return collectSubordinates(listOf(this), emptyList())
     }
 
     fun findWorker(name: String, workers: List<Worker>): Worker? =

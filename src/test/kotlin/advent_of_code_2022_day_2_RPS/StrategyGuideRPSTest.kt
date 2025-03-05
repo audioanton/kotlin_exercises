@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Assertions.*
 
   @Test
   fun solvePartOne() {
-   assertEquals(15, guide.solvePartOne(lines))
+   assertEquals(15, guide.solve(lines, guide.lambdaPartOne))
   }
 
   @Test
@@ -41,6 +41,6 @@ import org.junit.jupiter.api.Assertions.*
 
   @Test
   fun solvePartTwo() {
-   assertEquals(12, guide.solvePartTwo(lines))
+   assertEquals(12, guide.solve(lines, guide.lambdaPartTwo))
   }
  }

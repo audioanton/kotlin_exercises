@@ -3,7 +3,7 @@ package advent_of_code_2022_day_6_Markers
 import java.io.File
 
 fun main() {
-    val data : List<String> = File("src/main/kotlin/advent_of_code_2022_day_6/test_input.txt").readLines()
+    val data : List<String> = File("src/main/kotlin/advent_of_code_2022_day_6_Markers/test_input.txt").readLines()
 
     // part 1
     println(findMarker(data[0], 4))
