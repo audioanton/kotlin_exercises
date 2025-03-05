@@ -5,18 +5,11 @@ import org.junit.jupiter.api.Test
 
 class WorkerTest {
 
- val santa = Worker("Tomten").apply {
-       initializeHierarchy(
-       listOf("Glader", "Butter", "Tröger", "Trötter", "Blyger", "Rådjuret", "Nyckelpigan", "Haren", "Räven",
-        "Skumtomten", "Gråsuggan", "Myran", "Bladlusen", "Dammråttan")
-      )
- }
+ val santa = Worker.getSanta()
 
- val subTomten = listOf("Tröger", "Trötter", "Blyger", "Dammråttan", "Skumtomten", "Glader",
-  "Butter", "Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran", "Bladlusen")
+ val subTomten = listOf("Tröger", "Trötter", "Blyger", "Dammråttan", "Skumtomten", "Glader", "Butter", "Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran", "Bladlusen")
  val subGlader = listOf("Tröger", "Trötter", "Blyger", "Dammråttan", "Skumtomten")
- val subButter = listOf("Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran",
-  "Bladlusen")
+ val subButter = listOf("Rådjuret", "Nyckelpigan", "Haren", "Räven", "Gråsuggan", "Myran", "Bladlusen")
  val subTrötter = listOf("Dammråttan", "Skumtomten")
  val subSkumtomten = listOf("Dammråttan")
  val subRäven = listOf("Gråsuggan", "Myran", "Bladlusen")
@@ -91,6 +84,7 @@ class WorkerTest {
   val worker = santa.findWorker("Myran", santa.subordinates)
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subMyran))
   assertEquals(subMyran.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
  }
@@ -101,6 +95,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertEquals(subRäven.size, subordinates!!.size)
+  assertTrue(subordinates!!.containsAll(subRäven))
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -109,6 +104,7 @@ class WorkerTest {
   val worker = santa.findWorker("Skumtomten", santa.subordinates)
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subSkumtomten))
   assertEquals(subSkumtomten.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
  }
@@ -118,6 +114,7 @@ class WorkerTest {
   val worker = santa.findWorker("Trötter", santa.subordinates)
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subTrötter))
   assertEquals(subTrötter.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
  }
@@ -127,6 +124,7 @@ class WorkerTest {
   val worker = santa.findWorker("Butter", santa.subordinates)
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subButter))
   assertEquals(subButter.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
  }
@@ -136,6 +134,7 @@ class WorkerTest {
   val worker = santa.findWorker("Glader", santa.subordinates)
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subGlader))
   assertEquals(subGlader.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
  }
@@ -145,6 +144,7 @@ class WorkerTest {
   val worker = santa.findWorker("Tomten", santa.subordinates)
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subTomten))
   assertEquals(subTomten.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
  }
@@ -154,12 +154,14 @@ class WorkerTest {
   val worker = santa.findWorker("Tomten", santa.subordinates)
   val subordinates = worker?.collectAllSubordinates()
   assertNotNull(subordinates)
+  assertTrue(subordinates!!.containsAll(subTomten))
   assertEquals(subTomten.size, subordinates!!.size)
   assertFalse(subordinates.contains(worker.name))
 
   val newWorker = santa.findWorker("Glader", santa.subordinates)
   val newSubs = newWorker?.collectAllSubordinates()
   assertNotNull(newSubs)
+  assertTrue(subordinates!!.containsAll(subGlader))
   assertEquals(subGlader.size, newSubs!!.size)
   assertFalse (newSubs.contains(newWorker.name))
 

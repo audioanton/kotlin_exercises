@@ -1,12 +1,7 @@
-package advent_of_code_2023_day_7
+package advent_of_code_2023_day_7_CamelCards
 
 import java.io.File
 
-//    use Class Triple which is a Kotlin standard data class, hand, bid, value
-//    create function to establish the value of a hand
-//    function checks for multiple ocurrence of any character, and binds their value to an int of 6 available choices.
-//    sorts according to score, uses compareHands method when multiciplies are equal - which check cards values..
-//    use sorted (map) list to multiply by index
 
 // algorithm:
 //    create data class hand, data class helps with comparing
@@ -24,7 +19,6 @@ data class ParsedHand(val hand: List<Int>, val multiples: List<Int>, val bid: In
 }
 
 fun main() {
-
     val lines : List<String> = File("src/main/kotlin/advent_of_code_2023_day_7/input.txt").readLines()
 
     fun getAnswer(lines : List<String>) : Int {

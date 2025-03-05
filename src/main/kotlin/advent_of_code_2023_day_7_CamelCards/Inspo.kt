@@ -1,4 +1,4 @@
-package advent_of_code_2023_day_7
+package advent_of_code_2023_day_7_CamelCards
 // https://raw.githubusercontent.com/eagely/adventofcode/refs/heads/main/src/main/kotlin/solutions/y2023/Day7.kt
 
 //package solutions.y2023

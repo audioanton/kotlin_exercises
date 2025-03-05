@@ -1,4 +1,4 @@
-package advent_of_code_2023_day_7
+package advent_of_code_2023_day_7_CamelCards
 
 fun main() {
 

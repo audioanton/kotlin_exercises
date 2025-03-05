@@ -1,11 +1,11 @@
-package advent_of_code_2022_day_2
+package advent_of_code_2022_day_2_RPS
 
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
- class StrategyGuideTest {
+ class StrategyGuideRPSTest {
 
-  val guide = StrategyGuide()
+  val guide = StrategyGuideRPS()
   val lines = listOf("A Y", "B X", "C Z")
 
 @Test
@@ -27,16 +27,16 @@ import org.junit.jupiter.api.Assertions.*
   }
 
   @Test
-  fun getSymbolValue() {
-   assertEquals(1, guide.getSymbolValue("A" to 3))
-   assertEquals(2, guide.getSymbolValue("A" to 6))
-   assertEquals(3, guide.getSymbolValue("A" to 0))
-   assertEquals(2, guide.getSymbolValue("B" to 3))
-   assertEquals(3, guide.getSymbolValue("B" to 6))
-   assertEquals(1, guide.getSymbolValue("B" to 0))
-   assertEquals(3, guide.getSymbolValue("C" to 3))
-   assertEquals(1, guide.getSymbolValue("C" to 6))
-   assertEquals(2, guide.getSymbolValue("C" to 0))
+  fun getMoveValue() {
+   assertEquals(1, guide.getMoveValue("A" to 3))
+   assertEquals(2, guide.getMoveValue("A" to 6))
+   assertEquals(3, guide.getMoveValue("A" to 0))
+   assertEquals(2, guide.getMoveValue("B" to 3))
+   assertEquals(3, guide.getMoveValue("B" to 6))
+   assertEquals(1, guide.getMoveValue("B" to 0))
+   assertEquals(3, guide.getMoveValue("C" to 3))
+   assertEquals(1, guide.getMoveValue("C" to 6))
+   assertEquals(2, guide.getMoveValue("C" to 0))
   }
 
   @Test

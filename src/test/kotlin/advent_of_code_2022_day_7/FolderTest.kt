@@ -1,6 +1,6 @@
 package advent_of_code_2022_day_7
 
-import advent_of_code_2022_day_7_helped.Folder
+import advent_of_code_2022_day_7_folders.Folder
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
