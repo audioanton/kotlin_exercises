@@ -23,7 +23,7 @@ fun main () {
 
     println(sumPartOne)
     println(sumPartTwo)
-    println(sumPartTwoFunctional)
+    println("functional: $sumPartTwoFunctional")
 }
 
 fun getCompartments(line : String) : List<String> = listOf(line.substring(0, line.length / 2).toSet().joinToString(""), line.substring(line.length / 2).toSet().joinToString(""))
