@@ -6,7 +6,6 @@ import java.io.File
 // separate each three lines into separate lists
 // do the same as part one but for these groups
 
-
 fun main () {
     val lines = File("src/main/kotlin/advent_of_code_2022_day_3_Rucksack/input.txt").readLines()
 

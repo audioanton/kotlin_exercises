@@ -2,6 +2,9 @@ package exercise_2
 
 class Worker(val name : String, val subordinates : List<Worker> = listOf()) { // default empty list
 
+    // property getter (todd ginsburg) - inte konstant värde, utan en beräkning som utförs varje gång den kallas på.
+    // skaffar alla underordnade för denna arbetare, sedan en utplattad lista av dess underordnades underordnade som i sin tur kallar på sina underordnades osv...
+    // slutar när det inte finns fler underordnade
     val allSubordinates get() : List<String> = subordinates.map { it.name } + subordinates.flatMap { it.allSubordinates }
 
     tailrec fun collectAllSubordinates(workers: List<Worker>, allSubordinates : List<Worker>): List<String> {
@@ -12,8 +15,11 @@ class Worker(val name : String, val subordinates : List<Worker> = listOf()) { //
             }
     }
 
-    fun findWorker(name: String, workers: List<Worker>): Worker? =
-        if (this.name == name) this else workers.find { it.name == name } ?: findWorker(name, workers.flatMap { it.subordinates })
+    fun findWorker(name: String, subordinates: List<Worker>): Worker? {
+        return if (this.name == name) this
+        else if (subordinates.isEmpty()) null
+        else subordinates.find { it.name == name } ?: findWorker(name, subordinates.flatMap { it.subordinates })
+    }
 
     // instead of static function
     companion object {

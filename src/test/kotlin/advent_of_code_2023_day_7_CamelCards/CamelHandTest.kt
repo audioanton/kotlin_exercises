@@ -3,15 +3,15 @@ package advent_of_code_2023_day_7_CamelCards
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
- class ParsedHandTest {
+ class CamelHandTest {
 
 @Test
  fun compareToTest() {
- val high = ParsedHand(listOf(10,9,8,7), listOf(3,2), 456)
- val midHigh = ParsedHand(listOf(10,8,8,7), listOf(3,2), 456)
- val middle = ParsedHand(listOf(10,9,8,7), listOf(2,2,1), 456)
- val low = ParsedHand(listOf(9,9,8,7), listOf(2,1,1,1), 456)
- val lowCopy = ParsedHand(listOf(9,9,8,7), listOf(2,1,1,1), 456)
+ val high = CamelHand(listOf(10,9,8,7), listOf(3,2), 456)
+ val midHigh = CamelHand(listOf(10,8,8,7), listOf(3,2), 456)
+ val middle = CamelHand(listOf(10,9,8,7), listOf(2,2,1), 456)
+ val low = CamelHand(listOf(9,9,8,7), listOf(2,1,1,1), 456)
+ val lowCopy = CamelHand(listOf(9,9,8,7), listOf(2,1,1,1), 456)
 
 
  assertEquals(1, high.compareTo(low))

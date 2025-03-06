@@ -164,6 +164,12 @@ class WorkerTest {
   assertTrue(subordinates!!.containsAll(subGlader))
   assertEquals(subGlader.size, newSubs!!.size)
   assertFalse (newSubs.contains(newWorker.name))
+ }
+
+ @Test
+ fun findWorkerTest() {
+  val worker = santa.findWorker("Greger", santa.subordinates)
+  assertNull(worker)
 
  }
 }
