@@ -95,7 +95,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertEquals(subRäven.size, subordinates!!.size)
-  assertTrue(subordinates!!.containsAll(subRäven))
+  assertTrue(subordinates.containsAll(subRäven))
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -105,7 +105,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subSkumtomten))
-  assertEquals(subSkumtomten.size, subordinates!!.size)
+  assertEquals(subSkumtomten.size, subordinates.size)
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -115,7 +115,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subTrötter))
-  assertEquals(subTrötter.size, subordinates!!.size)
+  assertEquals(subTrötter.size, subordinates.size)
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -125,7 +125,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subButter))
-  assertEquals(subButter.size, subordinates!!.size)
+  assertEquals(subButter.size, subordinates.size)
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -135,7 +135,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subGlader))
-  assertEquals(subGlader.size, subordinates!!.size)
+  assertEquals(subGlader.size, subordinates.size)
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -145,7 +145,7 @@ class WorkerTest {
   val subordinates = worker?.allSubordinates
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subTomten))
-  assertEquals(subTomten.size, subordinates!!.size)
+  assertEquals(subTomten.size, subordinates.size)
   assertFalse(subordinates.contains(worker.name))
  }
 
@@ -155,13 +155,13 @@ class WorkerTest {
   val subordinates = worker?.collectAllSubordinates(listOf(worker), emptyList())
   assertNotNull(subordinates)
   assertTrue(subordinates!!.containsAll(subTomten))
-  assertEquals(subTomten.size, subordinates!!.size)
+  assertEquals(subTomten.size, subordinates.size)
   assertFalse(subordinates.contains(worker.name))
 
   val newWorker = santa.findWorker("Glader", santa.subordinates)
   val newSubs = newWorker?.collectAllSubordinates(listOf(newWorker), emptyList())
   assertNotNull(newSubs)
-  assertTrue(subordinates!!.containsAll(subGlader))
+  assertTrue(subordinates.containsAll(subGlader))
   assertEquals(subGlader.size, newSubs!!.size)
   assertFalse (newSubs.contains(newWorker.name))
  }
@@ -170,6 +170,5 @@ class WorkerTest {
  fun findWorkerTest() {
   val worker = santa.findWorker("Greger", santa.subordinates)
   assertNull(worker)
-
  }
 }
